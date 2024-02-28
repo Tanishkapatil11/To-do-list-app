@@ -1,0 +1,51 @@
+# Initialize empty list to store tasks
+tasks = []
+
+# Function to display the to-do list
+def show_tasks():
+  if not tasks:
+    print("No tasks to display.")
+  else:
+    print("Your to-do list:")
+    for i, task in enumerate(tasks):
+      print(f"{i+1}. {task}")
+
+# Function to add a new task
+def add_task():
+  task = input("Enter a new task: ")
+  tasks.append(task)
+  print("Task added successfully.")
+
+# Function to remove a task
+def remove_task():
+  if not tasks:
+    print("No tasks to remove.")
+  else:
+    show_tasks()
+    task_index = int(input("Enter the number of the task to remove: ")) - 1
+    if task_index < 0 or task_index >= len(tasks):
+      print("Invalid task number.")
+    else:
+      del tasks[task_index]
+      print("Task removed successfully.")
+
+# Main loop to manage user interaction
+while True:
+  print("\nTo-Do List App")
+  print("1. Show tasks")
+  print("2. Add a task")
+  print("3. Remove a task")
+  print("4. Exit")
+
+  choice = input("Enter your choice (1-4): ")
+
+  if choice =='1':
+    show_tasks()
+  elif choice =='2':
+    add_task()
+  elif choice =='3':
+    remove_task()
+  elif choice =='4':
+    break
+  else:
+    print("Invalid choice.")
